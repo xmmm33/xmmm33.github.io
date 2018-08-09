@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="学习日记," />
 
 
 
@@ -83,15 +83,20 @@
 
 
 
-<meta name="keywords" content="Web 后台">
+<meta name="keywords" content="学习日记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Test01">
-<meta property="og:url" content="http://yoursite.com/myblog/2018/08/09/Test01/index.html">
+<meta property="og:title" content="Linux压缩解压命令">
+<meta property="og:url" content="http://yoursite.com/myblog/2018/08/09/Linux压缩解压命令/index.html">
 <meta property="og:site_name" content="学习笔记">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-09T05:24:35.180Z">
+<meta property="og:image" content="https://i.imgur.com/O4qa4TH.png">
+<meta property="og:image" content="https://i.imgur.com/FF3yqqt.png">
+<meta property="og:image" content="https://i.imgur.com/4a9W26u.png">
+<meta property="og:image" content="https://i.imgur.com/oyy0lTv.png">
+<meta property="og:updated_time" content="2018-08-09T11:51:44.454Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Test01">
+<meta name="twitter:title" content="Linux压缩解压命令">
+<meta name="twitter:image" content="https://i.imgur.com/O4qa4TH.png">
 
 
 
@@ -135,13 +140,13 @@
 </style>
 
 
-  <link rel="canonical" href="http://yoursite.com/myblog/2018/08/09/Test01/"/>
+  <link rel="canonical" href="http://yoursite.com/myblog/2018/08/09/Linux压缩解压命令/"/>
 
 
 
 
 
-  <title>Test01 | 学习笔记</title>
+  <title>Linux压缩解压命令 | 学习笔记</title>
   
 
 
@@ -152,7 +157,6 @@
 
 
 </head>
-undefined
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
@@ -249,7 +253,7 @@ undefined
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/myblog/2018/08/09/Test01/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/myblog/2018/08/09/Linux压缩解压命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xmmm33">
@@ -266,7 +270,7 @@ undefined
 
         
         
-          <h1 class="post-title" itemprop="name headline">Test01</h1>
+          <h1 class="post-title" itemprop="name headline">Linux压缩解压命令</h1>
         
 
         <div class="post-meta">
@@ -278,7 +282,7 @@ undefined
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-09T13:24:35+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-09T19:31:01+08:00">
                 2018-08-09
               </time>
             
@@ -316,7 +320,37 @@ undefined
       
 
       
-        
+        <hr>
+<a id="more"></a>
+<hr>
+<p>在Linux中的压缩格式.gz，对应的命令<strong>gzip</strong></p>
+<pre><code>语法：gzip 【文件名】
+注意：只能压缩文件！
+</code></pre><p><img src="https://i.imgur.com/O4qa4TH.png" alt=""></p>
+<p>解压缩文件命令：<strong>gunzip</strong></p>
+<pre><code>语法：gunzip 【文件名】 等同于 gzip -d；
+</code></pre><p><img src="https://i.imgur.com/FF3yqqt.png" alt=""></p>
+<hr>
+<p>压缩目录：<strong>tar</strong></p>
+<pre><code>语法：tar -【cvfz】 【压缩后的文件名】 【被压缩目录】
+注意：压缩后的格式为.tar.gz； -z表示在打包的时候同时生成压缩文件。
+     一般使用tar -cjf；    
+</code></pre><p><img src="https://i.imgur.com/4a9W26u.png" alt=""></p>
+<p>解压目录：<strong>tar</strong></p>
+<pre><code>语法：tar -【zxvf】 【压缩后的文件名】 【被压缩目录】
+一般使用tar -xjf；
+</code></pre><hr>
+<p>另一种压缩格式.zip，对应的命令为<strong>zip</strong></p>
+<pre><code>语法：zip 选项【-r】 【压缩后的文件名】 【被压缩目录或文件】；-r表示压缩目录
+</code></pre><p><img src="https://i.imgur.com/oyy0lTv.png" alt=""></p>
+<p>对应的解压缩命令：<strong>unzip</strong></p>
+<pre><code>语法：unzip 【压缩文件】
+</code></pre><hr>
+<p>还有一种压缩格式.bz2，对应命令为<strong>bzip2</strong></p>
+<pre><code>语法：bzip2 【-k】 【文件】；-k表示压缩文件后保留原文件
+</code></pre><p>对应的解压缩命令为：<strong>bunzip2</strong></p>
+<pre><code>语法：bunzip2 【-k】 【压缩文件】；-k表示解压缩之后保留原文件
+</code></pre>
       
     </div>
     
@@ -324,12 +358,19 @@ undefined
     
 
     
+	
 
     
 
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/学习日记/" rel="tag"><i class="fa fa-tag">后台</i> 学习日记</a>
+          
+        </div>
       
 
       
@@ -340,8 +381,8 @@ undefined
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/myblog/2018/08/08/linux命令/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/myblog/2018/08/09/Linux文件搜索命令/" rel="next" title="Linux文件搜索命令">
+                <i class="fa fa-chevron-left"></i> Linux文件搜索命令
               </a>
             
           </div>
@@ -420,7 +461,7 @@ undefined
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -428,6 +469,15 @@ undefined
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>
