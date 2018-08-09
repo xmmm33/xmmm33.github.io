@@ -156,24 +156,45 @@
     <article id="post-linux-命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/myblog/2018/08/08/linux-命令/">linux 命令</a>
-    </h1>
-  
-
-        
-        <a href="/myblog/2018/08/08/linux-命令/" class="archive-article-date">
-  	<time datetime="2018-08-08T12:26:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
-</a>
-        
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <hr>
+<p>Linux命令</p>
+<hr>
+<p>显示目录文件命令：<strong>ls(list)</strong></p>
+<pre><code>命令所在路径/bin/ls，执行权限所有用户都可以；
+语法：ls 【选项 -a -l -d -lh】 【文件目录】
+    -a的意思是显示所有文件，包括隐藏文件；
+    -l是显示详细信息；
+    -d仅显示目录名；
+    -lh显示通俗易懂的；
+注意：在linux里面要想隐藏一个文件，就只有重命名，改成.开头的文件名格式；
+</code></pre><p><img src="https://i.imgur.com/AF2nIKP.png" alt=""></p>
+<pre><code>如上图，以.开头的文件都是隐藏文件，使用ls命令是看不到的，只有ls -a才能看到这些
+藏文件；-l就是显示文件的详细信息，可以看到第一行 drwxr-xr-x 这样的一个字段
+这个字段标识u、g、o三类用户对这个文件拥有的权限。
+</code></pre><p>创建目录命令：<strong>mkdir(make directories)</strong></p>
+<pre><code>命令所在路径/bin/mkdir；
+执行权限所有用户；
+功能就是创建新目录；
+可以一次创建单个目录或多个目录；例如mkdir /tmp/test01/a.txt或者mkdir /tmp
+test01/b.txt /tmp/test01/c.txt;
+</code></pre><p><img src="https://i.imgur.com/3hJCh5j.png" alt=""></p>
+<p>切换目录命令：<strong>cd(change directory)</strong></p>
+<pre><code>命令的功能就是进行目录的切换；
+切换到指定目录：cd /tmp/vae
+回到上一级目录：cd .. 
+还是在当前目录：cd .
+返回上两级目录：cd ../..
+返回进入此目录之前所在的目录：cd -
+</code></pre><p><img src="https://i.imgur.com/IC6fwSY.png" alt=""></p>
+<p>显示当前目录命令：<strong>pwd(print working directory)</strong></p>
+<pre><code>用法就是直接在当前目录下使用pwd
+</code></pre><p><img src="https://i.imgur.com/6q6fh6B.png" alt=""></p>
+<p>删除空目录命令：<strong>rmdir(remove empty directory)</strong></p>
+<pre><code>功能是删除指定空目录，但如果目录下有文件是不能删除的；
+</code></pre><p><img src="https://i.imgur.com/b5GbuCb.png" alt=""></p>
+
       
 
       
