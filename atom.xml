@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>学习笔记</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-08-09T03:06:36.129Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>xmmm33</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com//myblog/2018/08/08/linux-%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com//myblog/2018/08/08/linux-命令/</id>
+    <published>2018-08-07T16:00:00.000Z</published>
+    <updated>2018-08-09T03:06:36.129Z</updated>
+    
+    <content type="html"><![CDATA[<hr><h1 id="Linux命令01"><a href="#Linux命令01" class="headerlink" title="Linux命令01"></a>Linux命令01</h1><h2 id="文件处理命令"><a href="#文件处理命令" class="headerlink" title="文件处理命令"></a>文件处理命令</h2><hr><p>显示目录文件命令：<strong>ls(list)</strong></p><pre><code>命令所在路径/bin/ls，执行权限所有用户都可以；语法：ls 【选项 -a -l -d -lh】 【文件目录】-a的意思是显示所有文件，包括隐藏文件；-l是显示详细信息；-d仅显示目录名；-lh显示通俗易懂的；注意：在linux里面要想隐藏一个文件，就只有重命名，改成.开头的文件名格式；</code></pre><p><img src="https://i.imgur.com/AF2nIKP.png" alt=""></p><pre><code>如上图，以.开头的文件都是隐藏文件，使用ls命令是看不到的，只有ls -a才能看到这些藏文件；-l就是显示文件的详细信息，可以看到第一行 drwxr-xr-x 这样的一个字段这个字段标识u、g、o三类用户对这个文件拥有的权限。</code></pre><p>创建目录命令：<strong>mkdir(make directories)</strong></p><pre><code>命令所在路径/bin/mkdir；执行权限所有用户；功能就是创建新目录；可以一次创建单个目录或多个目录；例如mkdir /tmp/test01/a.txt或者mkdir /tmptest01/b.txt /tmp/test01/c.txt;</code></pre><p><img src="https://i.imgur.com/3hJCh5j.png" alt=""></p><p>切换目录命令：<strong>cd(change directory)</strong></p><pre><code>命令的功能就是进行目录的切换；切换到指定目录：cd /tmp/vae回到上一级目录：cd .. 还是在当前目录：cd .返回上两级目录：cd ../..返回进入此目录之前所在的目录：cd -</code></pre><p><img src="https://i.imgur.com/IC6fwSY.png" alt=""></p><p>显示当前目录命令：<strong>pwd(print working directory)</strong></p><pre><code>用法就是直接在当前目录下使用pwd</code></pre><p><img src="https://i.imgur.com/6q6fh6B.png" alt=""></p><p>删除空目录命令：<strong>rmdir(remove empty directory)</strong></p><pre><code>功能是删除指定空目录，但如果目录下有文件是不能删除的；</code></pre><p><img src="https://i.imgur.com/b5GbuCb.png" alt=""></p><p>目录复制命令：<strong>cp</strong></p><pre><code>语法：cp 【源文件目录】 【目标文件目录】；-p：保留文件属性linux在复制的过程中可以同时改变文件的名称；</code></pre><p><img src="https://i.imgur.com/AI04nIB.png" alt=""></p><p>目录剪切和更名命令：<strong>mv</strong></p><pre><code>语法：mv 【源文件目录】 【目标文件目录】；在同一个目录下面进行mv操作 就是进行文件重命名；</code></pre><p><img src="https://i.imgur.com/J8wZM5Z.png" alt=""></p><p>文件删除命令：<strong>rm</strong></p><pre><code>语法：rm 【文件名】；     rm -f 表示强制删除文件     rm -rf 表示强制删除一个目录注意：在删除任何文件前，都做好备份工作</code></pre><p>文件创建命令：<strong>touch</strong></p><pre><code>语法：在当前目录下，直接touch 【想创建的文件名】注意：不建议在linux文件名字中使用空格等特殊符号，这会引起后续操作的麻烦</code></pre><p>文件浏览命令：<strong>cat</strong></p><pre><code>语法：cat 【目标文件路径】可以用tac命令；倒着显示；</code></pre><p>长文件浏览命令：<strong>more</strong></p><pre><code>语法：more 【文件目录】然后按空格或f进行翻页，按回车进行换行，按q或Q推出浏览状态，但不能向上翻页</code></pre><p>长文件浏览命令：<strong>less</strong></p><pre><code>语法：less 【文件名】功能跟more一样，还能向上翻页，还能进行搜索</code></pre><p>看前几行浏览命令：<strong>head</strong></p><pre><code>语法：head -n 【文件名】；n表示你要显示的行数</code></pre><p><img src="https://i.imgur.com/FlaS2pL.png" alt=""></p><p>看最后几行浏览命令：<strong>tail</strong></p><pre><code>语法：tail -n 【文件名】     tail -f 【文件名】动态显示文件末尾内容，多用于查看服务器log记录</code></pre><p>链接命令：<strong>ln</strong></p><pre><code>语法：ln -s 【源文件】 【目标文件】</code></pre><p><img src="https://i.imgur.com/DLOxoPB.png" alt=""></p><pre><code>只要看到第一个字段以l开头，就说明这是一个软链接文件，类似windows系统中的快捷方式软链接文件前面的用户权限全部为rwx；</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;h1 id=&quot;Linux命令01&quot;&gt;&lt;a href=&quot;#Linux命令01&quot; class=&quot;headerlink&quot; title=&quot;Linux命令01&quot;&gt;&lt;/a&gt;Linux命令01&lt;/h1&gt;&lt;h2 id=&quot;文件处理命令&quot;&gt;&lt;a href=&quot;#文件处理命令&quot; class=
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
