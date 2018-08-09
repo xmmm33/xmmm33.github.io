@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-09T08:35:20.158Z</updated>
+  <updated>2018-08-09T08:37:28.898Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>test</title>
     <link href="http://yoursite.com//myblog/2018/08/09/Linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com//myblog/2018/08/09/Linux权限管理命令/</id>
-    <published>2018-08-08T16:00:00.000Z</published>
-    <updated>2018-08-09T08:35:20.158Z</updated>
+    <published>2018-08-09T08:36:48.000Z</published>
+    <updated>2018-08-09T08:37:28.898Z</updated>
     
     <content type="html"><![CDATA[<hr><h1 id="Linux权限管理命令"><a href="#Linux权限管理命令" class="headerlink" title="Linux权限管理命令"></a>Linux权限管理命令</h1><a id="more"></a><hr><p>权限管理命令：<strong>chmod</strong></p><pre><code>执行权限是所有用户；语法：chmod 【{ugoa}{+-=}{rwx}】 【文件目录】</code></pre><p><img src="https://i.imgur.com/HqbE6oZ.png" alt=""></p><pre><code>注意：chmod -R递归修改；改变某一个目录下以及这个目录下的所文件的权限</code></pre><hr><p>改变文件或目录的所有者：<strong>chown</strong></p><pre><code>语法：chown 【用户】 【文件或目录】</code></pre><p><img src="https://i.imgur.com/7aQJkyx.png" alt=""></p><pre><code>注意：改变的用户必须是系统里面有的用户角色</code></pre><hr><p>改变文件或目录的所属组：<strong>chgrp</strong></p><pre><code>语法：chgrp 【用户组】 【文件或目录】</code></pre><hr><p>显示、设置文件的缺省权限：<strong>umask</strong></p><pre><code>语法：umask -S</code></pre><p><img src="https://i.imgur.com/6b5hPvu.png" alt=""></p>]]></content>
     
@@ -32,6 +32,8 @@
     
     </summary>
     
+    
+      <category term="学习日记" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/"/>
     
   </entry>
   
