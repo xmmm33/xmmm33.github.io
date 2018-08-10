@@ -246,6 +246,175 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/myblog/2018/08/10/初识Struts2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xmmm33">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/dQxzrn6.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/myblog/2018/08/10/初识Struts2/" itemprop="url">初识Struts2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-10T14:45:19+08:00">
+                2018-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h2 id="Srtuts2运行基本流程"><a href="#Srtuts2运行基本流程" class="headerlink" title="Srtuts2运行基本流程"></a>Srtuts2运行基本流程</h2><pre><code>首先客户端初始化一个指向Servlet的容器的请求，常用的容器就是Tomcat，请求被提交到
+一系列的过滤器中；过滤器获取到请求路径，通过寻找src下面的Struts.xml核心配置文件
+来找到需要调用的Action类，这里解析Struts.xml文件是通过dom4j技术来解析的；这里
+获取对应的Action类的时候采用的是反射机制来实现的，然后得到相应的类的方法，调用
+方法后得到一个返回值，再到struts.xml配置文件中找到对应的result，然后跳转到对应
+页面。一个浅显的认识。
+</code></pre><hr>
+<h2 id="Srtuts2核心配置文件（主要的标签和属性）"><a href="#Srtuts2核心配置文件（主要的标签和属性）" class="headerlink" title="Srtuts2核心配置文件（主要的标签和属性）"></a>Srtuts2核心配置文件（主要的标签和属性）</h2><pre><code>struts.xml是Struts2的核心配置文件，它主要负责管理应用中的Action的映射，以及该
+Action包含的Result定义等；这里说一下struts.xml文件中的主要的标签和标签的属性的
+意义；
+1.首先是**&lt;struts&gt;&lt;/struts**&gt;标签，该标签是配置文件根标签。
+2.**&lt;package&gt;&lt;/package&gt;**该标签使用包机制来解决同名action的兼容问题，里面有三个属
+性，name属性可以根据自己来定义，extends一般是默认值struts-defalut，表示继承这
+个包，namespace属性设置包的命令空间，一般为“ / &quot;;与action标签的name属性组成网
+页访问地址，例如下图，如果要访问地址就是localhost：8080/yourProject/login.act
+ion；
+</code></pre><p><img src="https://i.imgur.com/DAHYijO.png" alt=""></p>
+<pre><code>3.**&lt;action&gt;&lt;/action&gt;**,name属性表示被请求action的名字，也是根据自己的需求来
+取，没有特定的要求；class属性为你的action类的具体路径，method属性为当你的一个
+action有多个方法，你要调用某一个方法的时候，就根据这个属性来判断；但是这种方法有
+一个局限性，就是当一个action类中的方法特别多的时候，就需要写非常多的action标签；
+因此这里可以采用通配符的方法来实现action的不同方法的访问；相比较而且这种方式是被
+采用的更多的；
+4.&lt;result&gt;&lt;/result&gt;标签，name属性为action类中的某一个方法的返回值，如果匹配成
+攻，则控制页面进行对应的跳转，这也就是这个标签的主要作用，type属性表示页面跳转采
+用的方式，默认为请求转发方式，还可以选择重定向方式来进行页面的跳转；
+</code></pre><hr>
+<h2 id="Srtuts2常量配置"><a href="#Srtuts2常量配置" class="headerlink" title="Srtuts2常量配置"></a>Srtuts2常量配置</h2><pre><code>在struts2中配置常量的方式有三种，在strucs.xml文件中配置，在web.xml文件中配置，
+在struts.propreties文件中配置；通常采用struts.xml文件中进行配置，便于集中的管
+理；一般常用的常量配置如下图；
+</code></pre><p><img src="https://i.imgur.com/7pcDb7j.png" alt=""></p>
+<hr>
+<h2 id="Srtuts2分模块开发"><a href="#Srtuts2分模块开发" class="headerlink" title="Srtuts2分模块开发"></a>Srtuts2分模块开发</h2><pre><code>可以单独写配置文件，把配置文件引入到核心配置文件中；意思就是一个在src中的struts.
+xml文件中不进行相应的标签声明，而是在相应的action类包中引入一个.xml文件，文件头
+部跟struts.xml文件的一样，然后你在这个文件中进行相应的配置；最后在struts.xml文
+件通过include标签对这个xml文件进行引入；
+</code></pre><hr>
+<h2 id="Srtuts2中Action的编写方式"><a href="#Srtuts2中Action的编写方式" class="headerlink" title="Srtuts2中Action的编写方式"></a>Srtuts2中Action的编写方式</h2><pre><code>action编写有三种方式；
+</code></pre><p>1.创建普通类，不继承任何类，不实现任何接口；<br><img src="https://i.imgur.com/uxGQsle.png" alt=""></p>
+<p>2.创建类，实现Action接口，很少用；<br><img src="https://i.imgur.com/njl3rkT.png" alt=""></p>
+<p>3.创建类，继承类ActionSupport，最常用的方式，看ActionSupport的源码发现其实它已经实现了Action接口；<br><img src="https://i.imgur.com/v0jfQ1x.png" alt=""></p>
+<hr>
+<h2 id="Srtuts2中Action的不同方法的访问方式"><a href="#Srtuts2中Action的不同方法的访问方式" class="headerlink" title="Srtuts2中Action的不同方法的访问方式"></a>Srtuts2中Action的不同方法的访问方式</h2><pre><code>有三种访问方式；1.使用action的标签的method属性，在这个属性里面执行action方法；
+              2.使用通配符方式实现，开发中常用的方式，如下图，在其中method属性
+              的写法为{1}中间的数据根据name属性中的*号的个数来决定的，学过java
+              基础的不难理解；
+</code></pre><p><img src="https://i.imgur.com/GbVhFX3.png" alt=""></p>
+<pre><code>3.动态访问实现（不常用）；
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+	
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/myblog/2018/08/09/Linux压缩解压命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -496,131 +665,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/myblog/2018/08/09/linux命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xmmm33">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/dQxzrn6.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学习笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/myblog/2018/08/09/linux命令/" itemprop="url">Linux文件处理命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-09T16:36:48+08:00">
-                2018-08-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/myblog/2018/08/09/linux命令/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-	
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/myblog/2018/08/09/Linux权限管理命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -733,6 +777,131 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/myblog/2018/08/09/linux命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xmmm33">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/dQxzrn6.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/myblog/2018/08/09/linux命令/" itemprop="url">Linux文件处理命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-09T16:36:48+08:00">
+                2018-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/myblog/2018/08/09/linux命令/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+	
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -783,7 +952,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
