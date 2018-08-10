@@ -73,6 +73,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml" />
 
@@ -81,13 +83,11 @@
 
 
 
-<meta name="description" content="Srtuts2运行基本流程首先客户端初始化一个指向Servlet的容器的请求，常用的容器就是Tomcat，请求被提交到 一系列的过滤器中；过滤器获取到请求路径，通过寻找src下面的Struts.xml核心配置文件 来找到需要调用的Action类，这里解析Struts.xml文件是通过dom4j技术来解析的；这里 获取对应的Action类的时候采用的是反射机制来实现的，然后得到相应的类的方法，调用">
 <meta name="keywords" content="学习日记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初识Struts2">
 <meta property="og:url" content="http://yoursite.com/myblog/2018/08/10/初识Struts2/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="Srtuts2运行基本流程首先客户端初始化一个指向Servlet的容器的请求，常用的容器就是Tomcat，请求被提交到 一系列的过滤器中；过滤器获取到请求路径，通过寻找src下面的Struts.xml核心配置文件 来找到需要调用的Action类，这里解析Struts.xml文件是通过dom4j技术来解析的；这里 获取对应的Action类的时候采用的是反射机制来实现的，然后得到相应的类的方法，调用">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/DAHYijO.png">
 <meta property="og:image" content="https://i.imgur.com/7pcDb7j.png">
@@ -95,10 +95,9 @@
 <meta property="og:image" content="https://i.imgur.com/njl3rkT.png">
 <meta property="og:image" content="https://i.imgur.com/v0jfQ1x.png">
 <meta property="og:image" content="https://i.imgur.com/GbVhFX3.png">
-<meta property="og:updated_time" content="2018-08-10T10:24:29.020Z">
+<meta property="og:updated_time" content="2018-08-10T10:30:14.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初识Struts2">
-<meta name="twitter:description" content="Srtuts2运行基本流程首先客户端初始化一个指向Servlet的容器的请求，常用的容器就是Tomcat，请求被提交到 一系列的过滤器中；过滤器获取到请求路径，通过寻找src下面的Struts.xml核心配置文件 来找到需要调用的Action类，这里解析Struts.xml文件是通过dom4j技术来解析的；这里 获取对应的Action类的时候采用的是反射机制来实现的，然后得到相应的类的方法，调用">
 <meta name="twitter:image" content="https://i.imgur.com/DAHYijO.png">
 
 
@@ -323,7 +322,9 @@
       
 
       
-        <a id="more"></a>
+        <hr>
+<a id="more"></a>
+<hr>
 <h2 id="Srtuts2运行基本流程"><a href="#Srtuts2运行基本流程" class="headerlink" title="Srtuts2运行基本流程"></a>Srtuts2运行基本流程</h2><pre><code>首先客户端初始化一个指向Servlet的容器的请求，常用的容器就是Tomcat，请求被提交到
 一系列的过滤器中；过滤器获取到请求路径，通过寻找src下面的Struts.xml核心配置文件
 来找到需要调用的Action类，这里解析Struts.xml文件是通过dom4j技术来解析的；这里
