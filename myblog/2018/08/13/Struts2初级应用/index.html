@@ -83,17 +83,38 @@
 
 <meta name="keywords" content="学习日记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux权限管理命令">
-<meta property="og:url" content="http://yoursite.com/myblog/2018/08/09/Linux权限管理命令/index.html">
+<meta property="og:title" content="Struts2初级应用">
+<meta property="og:url" content="http://yoursite.com/myblog/2018/08/13/Struts2初级应用/index.html">
 <meta property="og:site_name" content="学习笔记">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.imgur.com/HqbE6oZ.png">
-<meta property="og:image" content="https://i.imgur.com/7aQJkyx.png">
-<meta property="og:image" content="https://i.imgur.com/6b5hPvu.png">
-<meta property="og:updated_time" content="2018-08-09T08:40:59.852Z">
+<meta property="og:image" content="https://i.imgur.com/U5fdFIn.png">
+<meta property="og:image" content="https://i.imgur.com/1UpFnKE.png">
+<meta property="og:image" content="https://i.imgur.com/9EmpuOK.png">
+<meta property="og:image" content="https://i.imgur.com/iZ9WGF8.png">
+<meta property="og:image" content="https://i.imgur.com/zDo4DBX.png">
+<meta property="og:image" content="https://i.imgur.com/nJo4VDd.png">
+<meta property="og:image" content="https://i.imgur.com/v74Wzyw.png">
+<meta property="og:image" content="https://i.imgur.com/7cinqKQ.png">
+<meta property="og:image" content="https://i.imgur.com/LTLLv7Y.png">
+<meta property="og:image" content="https://i.imgur.com/Xv71bGE.png">
+<meta property="og:image" content="https://i.imgur.com/a3ekik7.png">
+<meta property="og:image" content="https://i.imgur.com/lfz2CqW.png">
+<meta property="og:image" content="https://i.imgur.com/44aj3zI.png">
+<meta property="og:image" content="https://i.imgur.com/jS1Mb0M.png">
+<meta property="og:image" content="https://i.imgur.com/Ke0nm9v.png">
+<meta property="og:image" content="https://i.imgur.com/CuTJpu6.png">
+<meta property="og:image" content="https://i.imgur.com/bwNxjLX.png">
+<meta property="og:image" content="https://i.imgur.com/Z0BvsWq.png">
+<meta property="og:image" content="https://i.imgur.com/2rBXMLp.png">
+<meta property="og:image" content="https://i.imgur.com/hOeH2YQ.png">
+<meta property="og:image" content="https://i.imgur.com/MDLpZVc.png">
+<meta property="og:image" content="https://i.imgur.com/okPC6gP.png">
+<meta property="og:image" content="https://i.imgur.com/xRtu5yA.png">
+<meta property="og:image" content="https://i.imgur.com/QvduGZV.png">
+<meta property="og:updated_time" content="2018-08-13T08:29:43.430Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux权限管理命令">
-<meta name="twitter:image" content="https://i.imgur.com/HqbE6oZ.png">
+<meta name="twitter:title" content="Struts2初级应用">
+<meta name="twitter:image" content="https://i.imgur.com/U5fdFIn.png">
 
 
 
@@ -137,13 +158,13 @@
 </style>
 
 
-  <link rel="canonical" href="http://yoursite.com/myblog/2018/08/09/Linux权限管理命令/"/>
+  <link rel="canonical" href="http://yoursite.com/myblog/2018/08/13/Struts2初级应用/"/>
 
 
 
 
 
-  <title>Linux权限管理命令 | 学习笔记</title>
+  <title>Struts2初级应用 | 学习笔记</title>
   
 
 
@@ -250,7 +271,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/myblog/2018/08/09/Linux权限管理命令/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/myblog/2018/08/13/Struts2初级应用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xmmm33">
@@ -267,7 +288,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux权限管理命令</h1>
+          <h1 class="post-title" itemprop="name headline">Struts2初级应用</h1>
         
 
         <div class="post-meta">
@@ -279,8 +300,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-09T16:36:48+08:00">
-                2018-08-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-13T09:26:48+08:00">
+                2018-08-13
               </time>
             
 
@@ -320,24 +341,122 @@
         <hr>
 <a id="more"></a>
 <hr>
-<p>权限管理命令：<strong>chmod</strong></p>
-<pre><code>执行权限是所有用户；
-语法：chmod 【{ugoa}{+-=}{rwx}】 【文件目录】
-</code></pre><p><img src="https://i.imgur.com/HqbE6oZ.png" alt=""></p>
-<pre><code>注意：chmod -R递归修改；改变某一个目录下以及这个目录下的所
-文件的权限
+<h2 id="结果页面的配置"><a href="#结果页面的配置" class="headerlink" title="结果页面的配置"></a>结果页面的配置</h2><p><strong>全局结果页面配置</strong></p>
+<pre><code>全局结果页面的配置，这个的出现是因为当有两个或多个action的返回值相同，并且转到的
+页面也相同的时候，单独使用常规配置是能完成功能实现的，但这样会造成重复的代码出现；
+所以这时候就需要配置全局结果页面，使用到的标签为&lt;global-result&gt;&lt;/global-resul
+t&gt;；在这个标签里面写入result标签，把多个具有相同返回值的action并且转到的页面是相
+同的多行代码，写入一行就行了，其他action中的result标签就可以注释掉了，减少了重复
+的代码出现，如下图；
+</code></pre><p><img src="https://i.imgur.com/U5fdFIn.png" alt=""></p>
+<hr>
+<p><strong>局部结果页面配置</strong></p>
+<pre><code>当配置了全局结果页面和局部结果页面时，而且具有相同的返回值的时候，这时候以局部结果
+页面配置为准；
+</code></pre><p><strong>Result标签中的type属性</strong></p>
+<pre><code>这个type属性是配置是定义我们如何到对应的页面当中去；默认值为请求转发；dispatcher
+还有一个值是redirect，重定向地址栏会发生变化，相当于两次请求；上面的这两个值是配
+置到某个页面的用法，但我们在开发用需要配置到其他action；分别为chain和redirectA
+ction；第一个一般不用；
+redirectAction：重定向到另一个action；
 </code></pre><hr>
-<p>改变文件或目录的所有者：<strong>chown</strong></p>
-<pre><code>语法：chown 【用户】 【文件或目录】
-</code></pre><p><img src="https://i.imgur.com/7aQJkyx.png" alt=""></p>
-<pre><code>注意：改变的用户必须是系统里面有的用户角色
+<p><strong>Action获取表单获取的数据</strong></p>
+<pre><code>在servlet中，使用的request对象来获取；action中没有直接引入request对象，我们需
+要来手动获取；有三种方式：1.使用ActionContext类 2.使用ServletActionContext类
+3使用接口注入的方式；
+
+ActionContext：先使用ActionContext.getContext方法获取到ActionContext对象，
+               再使用 对象.getParameters方法，返回一个map，这个map中的key为
+               表单输入项中的name属性值，value为你输入的值；
+</code></pre><p><img src="https://i.imgur.com/1UpFnKE.png" alt=""></p>
+<pre><code>ServletActionContext：使用ServletActionContext.getRequest方法获取request
+                      对象，然后使用request的getParameter方法来获取表单数据
+</code></pre><p><img src="https://i.imgur.com/9EmpuOK.png" alt=""></p>
+<p><img src="https://i.imgur.com/iZ9WGF8.png" alt=""></p>
+<pre><code>使用接口注入方式（不常用）：让你的action实现ServletRequestAware接口，得
+到request对象，后面操作同上；
+</code></pre><p><img src="https://i.imgur.com/zDo4DBX.png" alt=""></p>
+<hr>
+<p><strong>Struts2提供的封装获取表单数据的方式</strong></p>
+<pre><code>原始方式如图：
+</code></pre><p><img src="https://i.imgur.com/nJo4VDd.png" alt=""></p>
+<p><strong>属性封装</strong></p>
+<pre><code>直接把表单提交的属性封装到action的属性里面；在action成员变量的位置定义
+变量，变量名称和表单的name属性值相同，然后生成get、set方法，这个方法的方便之处就
+是在获取数据的时候方便，但要放入对象中去的时候，还是要写必要的代码。
+</code></pre><p><strong>模型驱动封装方式</strong></p>
+<pre><code>直接把数据封装到实体类对象当中去；接口中泛型为实体类的名称；手动常见实体类对象，然
+后返回创建的实体类对象；前提要求是表单里的name属性值要和实体类中的属性名称一样；
+这个方法在开发中是最常用的；其底层还是用的原始方式；
+</code></pre><p><img src="https://i.imgur.com/v74Wzyw.png" alt=""></p>
+<pre><code>注意：不能同时使用上两种方式操作同一个表单数据，如果同时使用，会使用模型驱动封装；
+</code></pre><p><img src="https://i.imgur.com/7cinqKQ.png" alt=""></p>
+<p><strong>表达式封装</strong></p>
+<pre><code>也可以直接把表单数据封装到实体类中；在action中声明实体类，生成这个实体类变变量的
+get、set方法，在表单输入项name属性处输入表达式形式；如下图；
+</code></pre><p><img src="https://i.imgur.com/LTLLv7Y.png" alt=""><br><img src="https://i.imgur.com/Xv71bGE.png" alt=""><br><img src="https://i.imgur.com/a3ekik7.png" alt=""></p>
+<hr>
+<p><strong>封装数据到List集合</strong></p>
+<pre><code>在action中声明List，生成list的get、set方法，在表单输入项中写表达式；用的比较少；
+</code></pre><p><strong>封装数据到Map集合</strong></p>
+<pre><code>在action中声明map，生成map的get、set方法，在表单输入项中写表达式；也用的比较少；
 </code></pre><hr>
-<p>改变文件或目录的所属组：<strong>chgrp</strong></p>
-<pre><code>语法：chgrp 【用户组】 【文件或目录】
+<h2 id="值栈"><a href="#值栈" class="headerlink" title="值栈"></a>值栈</h2><p><strong>OGNL概述</strong></p>
+<pre><code>EL表达式可以在jsp中获取域对象里面的值；
+OGNL表达式更强大了；在struts2里面操作值栈数据，一般与struts2标签一起使用；
+OGNL不是struts2的一部分，但常和struts2一起来使用；
+引入标签库，如图
+</code></pre><p><img src="https://i.imgur.com/lfz2CqW.png" alt=""></p>
+<pre><code>例子计算一个字符串长度；如图；value里面的值就是ognl表达式；
+</code></pre><p><img src="https://i.imgur.com/44aj3zI.png" alt=""></p>
+<p><strong>什么是值栈</strong></p>
+<pre><code>在struts2里面提供本身一种存储机制，类似于域对象，是值栈，可以存值取值；
+在action里面可以把数据放到值栈里面，在页面中获取到值栈数据；
+
+servlet和action的区别，servlet默认在第一次访问的时候创建，创建一次，单实例
+对象；action访问时创建，每次访问action的时候都会创建action对象，创建多次，多
+实例对象；
+
+每次访问action的时候，都会创建action对象，在每个对象里面都会有一个值栈对象，就相
+当于说值栈存储于每个action里面；
 </code></pre><hr>
-<p>显示、设置文件的缺省权限：<strong>umask</strong></p>
-<pre><code>语法：umask -S
-</code></pre><p><img src="https://i.imgur.com/6b5hPvu.png" alt=""></p>
+<p><strong>如何获取到值栈对象</strong></p>
+<pre><code>使用ActionContext类里面的方法得到值栈对象；这是最常用的方式；使用方式如下图；
+</code></pre><p><img src="https://i.imgur.com/jS1Mb0M.png" alt=""><br>    每个action对象里面只有一个值栈对象；</p>
+<hr>
+<p><strong>值栈内部结构</strong></p>
+<pre><code>值栈分为两部分 1.root 本身结构是list集合 2.context 本身结构是map集合；
+</code></pre><p><img src="https://i.imgur.com/Ke0nm9v.png" alt=""></p>
+<pre><code>一般操作的都是root里面的数据；可以在jsp页面中使用debug标签来查看值栈的内部结构；
+</code></pre><hr>
+<p><strong>向值栈放数据</strong></p>
+<pre><code>有多种方式，可以调用值栈对象的set和push方法；但是主要采用的是在action定义变量
+，生成变量的get方法，如下图：
+</code></pre><p><img src="https://i.imgur.com/CuTJpu6.png" alt=""><br><img src="https://i.imgur.com/bwNxjLX.png" alt=""></p>
+<pre><code>注意：如果采用值栈对象的set和push方法来存储数据，会重新分配空间，而第三种方式是
+直接在你的action中存储，相对于前面两种方式，可以节约存储空间；
+</code></pre><p><strong>向值栈中放对象</strong></p>
+<pre><code>实现步骤，首先定义对象，然后生成对象的get方法，最后在执行的方法中来对对象进行赋
+值；
+</code></pre><p><img src="https://i.imgur.com/Z0BvsWq.png" alt=""></p>
+<p><strong>向值栈中放List集合</strong></p>
+<pre><code>实现步骤，定义list集合变量，生成变量的get方法，在执行的方法中对对象进行赋值；
+</code></pre><p><img src="https://i.imgur.com/2rBXMLp.png" alt=""></p>
+<hr>
+<p><strong>从值栈中取数据</strong></p>
+<pre><code>- 获取字符串：使用struts2标签和ognl表达式获取值栈数据；
+           &lt;s:property value=&quot;ognl表达式&quot;/&gt;;
+           其中value的值为字符串对象变量的名称；
+</code></pre><p><img src="https://i.imgur.com/hOeH2YQ.png" alt=""></p>
+<pre><code>- 获取对象：
+</code></pre><p><img src="https://i.imgur.com/MDLpZVc.png" alt=""></p>
+<pre><code>- 获取List集合：第一种方式：
+</code></pre><p><img src="https://i.imgur.com/okPC6gP.png" alt=""></p>
+<pre><code>- 第二种方式：
+</code></pre><p><img src="https://i.imgur.com/xRtu5yA.png" alt=""></p>
+<pre><code>- 第三种方式：最常用的方式，它会在context中分配一个临时空间给list
+             key为var的值；
+</code></pre><p><img src="https://i.imgur.com/QvduGZV.png" alt=""></p>
 
       
     </div>
@@ -369,15 +488,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/myblog/2018/08/10/初识Struts2/" rel="next" title="初识Struts2">
+                <i class="fa fa-chevron-left"></i> 初识Struts2
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/myblog/2018/08/09/linux命令/" rel="prev" title="Linux文件处理命令">
-                Linux文件处理命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -429,8 +548,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -520,6 +648,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#结果页面的配置"><span class="nav-number">1.</span> <span class="nav-text">结果页面的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#值栈"><span class="nav-number">2.</span> <span class="nav-text">值栈</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
