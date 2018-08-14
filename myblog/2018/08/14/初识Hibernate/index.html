@@ -94,7 +94,9 @@
 <meta property="og:image" content="https://i.imgur.com/iLVmkUS.png">
 <meta property="og:image" content="https://i.imgur.com/cWLXcT9.png">
 <meta property="og:image" content="https://i.imgur.com/xlVDdYW.png">
-<meta property="og:updated_time" content="2018-08-14T08:34:53.560Z">
+<meta property="og:image" content="https://i.imgur.com/XEgOGRL.png">
+<meta property="og:image" content="https://i.imgur.com/OhDSRaa.png">
+<meta property="og:updated_time" content="2018-08-14T11:46:30.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初识Hibernate">
 <meta name="twitter:image" content="https://i.imgur.com/AnAMoeW.png">
@@ -358,6 +360,9 @@ Transaction事务对象，主要两个操作，事务提交和回滚；事务的
 一致性、隔离性、持久性（简称ACID）；
 事务是应用程序中一系列严密的操作，所有操作必须成功完成，否则在每个操作中所作的
 所有更改都会被撤消。
+
+Query对象；使用query对象，不需要写sql语句，需要些hql语句，sql语句是对数据库的
+表和表里的字段进行操作；而hql语句是对实体类和实体类的属性进行操作；
 </code></pre><ul>
 <li>原子性：也就是指一个事务中的一系列操作要么全部成功，要么一个都不做，不能只执行其中一部分操作；</li>
 </ul>
@@ -365,11 +370,52 @@ Transaction事务对象，主要两个操作，事务提交和回滚；事务的
 <li>一致性：就是指事务执行的结果必须是使数据库从一个一致性状态变到另一个一致性状态，换句话说就是数据库只包含成功提交事务的结果时，就说数据库处于一致性状态</li>
 </ul>
 <ul>
-<li>隔离性：即一个事务内部的操作对于其他并发的事务是隔离的、不影响的；</li>
+<li>隔离性：即一个事务内部的操作对于其他并发的事务是隔离的、不影响的；如果不考虑隔离性的话会产生脏读、虚读、不可重复读问题；</li>
 </ul>
 <ul>
 <li>持久性：指一个事务一旦提交了，它对数据库中的数据的改变就是永久性的，即使系统崩溃，修改的数据也不会丢失；</li>
 </ul>
+<hr>
+<p><strong>hibernate的实体类编写规则</strong></p>
+<p>大致跟javabean的编写一致；但需要注意以下几点：</p>
+<ol>
+<li>要求实体类有属性作为唯一值，即<strong>唯一属性</strong>；</li>
+<li>实体类属性最好使用<strong>基本数据类型的包装类型</strong>，不要使用基本类型；</li>
+</ol>
+<p><strong>实体类对象的三种状态</strong></p>
+<ol>
+<li><strong>瞬时态</strong>：对象里面没有id值，与对象session没有关系；</li>
+<li><strong>持久态</strong>：对象里面有id值，对象与session有关系；</li>
+<li><strong>托管态</strong>：对象有id值，但对象与session没有关系；</li>
+</ol>
+<hr>
+<p><strong>hibernate缓存</strong></p>
+<p>hibernate中的缓存是一个优化方式；</p>
+<ul>
+<li><p>hibernate的一级缓存：默认是打开的；它的使用范围就是session范围，以创建session开始<br>到session关闭为止；在一级缓存中<strong>存储的数据必须是持久态的数据</strong>；持久态数据会自动更新数据库；执行过程如下图：<br><img src="https://i.imgur.com/XEgOGRL.png" alt=""></p>
+</li>
+<li><p>hibernate的二级缓存：已经不适用了，已经用redis技术来替代了；</p>
+</li>
+<li></li>
+</ul>
+<hr>
+<p><strong>hibernate事务代码规范写法</strong></p>
+<pre><code>try{
+        开启事务
+        提交事务
+    }catch（异常）{
+        回滚事务
+    }finally{
+        关闭
+    }
+</code></pre><hr>
+<p><strong>hibernate绑定session</strong></p>
+<p>session类似于jdbc的Connection；获取与本地线程绑定的session：</p>
+<ol>
+<li>首先在核心配置文件中配置；</li>
+<li>调用sessionFactory中的方法得到；</li>
+</ol>
+<p><strong>注意：</strong>当你获取与本地线程绑定的session的时候，线程结束会自动关闭session，如果你手动关闭了，系统会报错，如下图：<br><img src="https://i.imgur.com/OhDSRaa.png" alt=""></p>
 
       
     </div>
