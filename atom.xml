@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-14T03:49:54.134Z</updated>
+  <updated>2018-08-15T11:19:05.231Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,12 +21,18 @@
     <link href="http://yoursite.com//myblog/2018/08/14/%E5%88%9D%E8%AF%86Spring/"/>
     <id>http://yoursite.com//myblog/2018/08/14/初识Spring/</id>
     <published>2018-08-14T03:49:54.000Z</published>
-    <updated>2018-08-14T03:49:54.134Z</updated>
+    <updated>2018-08-15T11:19:05.231Z</updated>
+    
+    <content type="html"><![CDATA[<hr><a id="more"></a><hr><p><strong>什么是Spring</strong></p><p>Spring是一个开源的轻量级的框架，Spring的核心主要两部分<strong>aop</strong>、<strong>ioc</strong>；</p><ul><li><strong>aop</strong>：面向切面编程，扩展功能不是修改源代码实现；</li><li><strong>ioc</strong>：控制反转，比如说有一个类，在类里面有一个非静态方法，调用类里面的方法，我们需要创建累的对象，使用对象调用方法；要new对象；而ioc就是把对象的创建不是通过new，二是交给Spring配置完成创建类的对象；</li></ul><p>Spring是一站式框架，它在javaee三层结构中，每一层都提供了不同的解决技术；</p><ul><li>web层：SpringMVC</li><li>service层：Spring的ioc</li><li>dao层：Spring的jdbcTemplate</li></ul><p><strong>Spring的ioc操作</strong></p><p>把对象交给Spring进行管理；<br>ioc操作的两部分：</p><ul><li>ioc的配置文件方式</li><li>ioc的注解方式</li></ul><p><strong>ioc底层原理使用技术</strong>：</p><ol><li>xml文件的配置；</li><li>dom4j解析xml；</li><li>工厂设计模式；</li><li>反射；</li></ol><p>这是使用普通的方式来创建对象，使用对象的方法，耦合度太高了；虽然出现了工厂设计模式来解耦合，但还是不够，这就出现了ioc；<br><img src="https://i.imgur.com/ImgtbVr.png" alt=""></p><p><strong>ioc实现原理</strong>：<br><img src="https://i.imgur.com/UM0cnO5.png" alt=""></p><hr><p><strong>ioc实现步骤</strong></p><ol><li>导入jar包；</li><li>创建类，在类里面创建方法；</li><li>创建Spring配置文件，配置创建类；建议放到src下面，一般为applicationContext.xml需要引入schema约束；</li><li>写代码测试对象创建；</li></ol><hr><p><strong>Spring的bean管理（基于配置文件）</strong></p><p>bean实例化的方式：有三种方式：</p><ol><li>使用类的无参数构造创建（常用）；</li><li>使用静态工厂创建；创建静态的方法，直接使用工厂类名引用静态方法，返回类对象；</li><li>使用实例工厂创建；创建非静态方法，需要使用创建工厂对象来引用方法，返回类对象；</li></ol><p>bean标签常用的属性：</p><ol><li>id属性：起的名字，不能包含特殊符号</li><li>class属性：创建对象所在类的全路径</li><li>name属性：和id属性的功能一样，但name能包含特殊符号</li><li>scope属性：bean的作用范围，默认为单实例对象singleton；还有多实例对象属性prototype；request属性值表示把创建的对象放到request域中去等；</li></ol><hr><p><strong>属性注入</strong></p><p>就是在创建对象的时候，向类里面属性设置值，这就是属性注入；属性注入的三种方式：1.使用set方法注入；2.用有参数构造器注入；3.使用接口注入；<strong>在Spring框架里面，只支持前两种方式；</strong><br><img src="https://i.imgur.com/XXuTMMD.png" alt=""></p><p><strong>在Spring框架中：</strong></p><p>1.使用有参数构造器属性注入，配置文件如下图：<br><img src="https://i.imgur.com/c9GD2pH.png" alt=""></p><p>2.使用set方法进行属性注入，配置文件如下图：这个方式在开发中最常用；<br><img src="https://i.imgur.com/oD9CujG.png" alt=""></p><p>3.注入对象类型的属性：下图是一个在userService的类里面注入userDao对象的例子，Spring配置文件的书写规范：<br><img src="https://i.imgur.com/LLboNsq.png" alt=""></p><hr><p><strong>IOC和DI的区别</strong></p><ul><li>ioc：控制反转，把对象创交给Spring进行配置</li><li>DI：依赖注入，向类里面的属性中设置值</li><li><strong>两者的关系</strong>：依赖注入不能单独存在，必须在ioc的基础上完成操作</li></ul><hr><p><strong>Spring整合web项目原理</strong></p><p><strong>实现目标</strong>：把加载配置文件和创建对象过程在服务器启动时候完成；</p><p><strong>实现原理</strong>：在服务器启动的时候，为每个项目创建一个ServletContext对象；在ServletContext对象创建的时候，使用监听器可以具体到ServletContext对象在什么时候创建；当监听器监听到ServletContext对象创建的时候，就加载Spring配置文件，进行配置文件里的对象创建，把创建出来的对象放到ServletContext域对象里面，setAttribute方法；获取对象的时候使用getAttribute方法；</p><hr><p><strong>Spring的bean管理（基于注解方式）</strong></p><p>第一步：配置Spring配置文件<br><img src="https://i.imgur.com/7bvFXpP.png" alt=""></p><p>第二步：注解创建对象；在创建对象类的上面加上注解；一共有四个注解；<br><img src="https://i.imgur.com/lD78Kxv.png" alt=""><br><img src="https://i.imgur.com/IKQwodT.png" alt=""></p><p><strong>通过注解方式注入属性-@Autowired、@Resource</strong></p><p>在对象的属性上面使用注解完成对象的注入；第一步是注解创建对象，第二步是注解注入属性；</p><p><img src="https://i.imgur.com/7c51Qt4.png" alt=""><br><img src="https://i.imgur.com/sFqJHsq.png" alt=""></p><p><strong>注意：</strong> 在项目开发中，一般使用配置文件和注解混合使用；<strong>创建对象操作使用配置文件方式实现</strong>，<strong>注入属性的操作使用注解方式实现</strong>；</p><hr><p><strong>AOP</strong></p><ul><li>什么是AOP：面向切面编程，采取<strong>横向抽取机制</strong>，<br><img src="https://i.imgur.com/3gzRlGg.png" alt=""><br>而AOP采用的是横向抽取方式，其<strong>底层使用的是动态代理方式</strong>；<br><img src="https://i.imgur.com/oH2pu3m.png" alt=""><br><img src="https://i.imgur.com/wfP5Z1p.png" alt=""></li></ul><p><strong>AOP主要术语</strong></p><ul><li>连接点：类里面哪些方法可以被增强，这些方法就称为连接点；</li><li>切入点：在类里面可以有多个方法被增强，在实际中，只增强了类里面某几个方法，这几个方法称为切入点；</li><li>通知/增强：增强的逻辑，称为增强，比如说我们在某一个方法上扩展了一个日志功能，这个日志功能就称为增强；</li><li>切面：把增强应用到具体的方法上面，这个过程称为切面；<br><img src="https://i.imgur.com/7wmfiO6.png" alt=""></li></ul><p>比如在上图中，add这些方法可以被增强，就成为连接点；比如我增强了这个User类里面的add和findAll方法，则这两个方法称为切入点；通知，即我给add增强的功能，比如说一个日志功能；<br>切面，指我把日志功能应用到这个add方法这个过程称为切面</p><p><strong>Spring的AOP操作</strong></p><p>在Spring中使用aop操作，使用AspectJ来实现，这不是Spring的一部分，只是说要和Spring一起来使用，进行aop操作；使用aop操作之前，需要导入相关的jar包，配置对应约束；</p><p>使用aspectj实现aop的两种方式：</p><ol><li>基于aspectj的xml配置</li><li>基于aspectj的注解方式</li></ol>]]></content>
     
     <summary type="html">
     
+      &lt;hr&gt;
+    
     </summary>
     
+    
+      <category term="学习日记" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/"/>
     
   </entry>
   
